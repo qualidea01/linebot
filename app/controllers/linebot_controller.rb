@@ -25,7 +25,7 @@ class LinebotController < ApplicationController
       case event
       when Line::Bot::Event::Message
         case event.type
-				when Line::Bot::Event::MessageType::Message
+				when Line::Bot::Event::MessageType::Text
 					image_url = 'https://i.gyazo.com/0a18a9504cf70bdae6cdbd15f7cae7eb.jpg'
           message = {
             type: 'image',
