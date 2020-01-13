@@ -26,11 +26,15 @@ class LinebotController < ApplicationController
       when Line::Bot::Event::Message
         case event.type
 				when Line::Bot::Event::MessageType::Text
-					image_url = 'https://i.gyazo.com/0a18a9504cf70bdae6cdbd15f7cae7eb.jpg'
+					image_url = [
+						'https://i.gyazo.com/8d8be142e1ca2ce3be59deaaac3dd0ad.jpg',
+						'https://i.gyazo.com/49fd971b7eecf40a0180c1d035280609.jpg',
+						'https://gyazo.com/894e8dcad8e5ace4f1b86f89ec277850.jpg'
+											]
           message = {
             type: 'image',
-						originalContentUrl: image_url,
-						previewImageUrl: image_url
+						originalContentUrl: image_url.sample,
+						previewImageUrl: image_url.sample
           }
           client.reply_message(event['replyToken'], message)
         end
